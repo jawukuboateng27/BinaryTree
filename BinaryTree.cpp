@@ -158,7 +158,7 @@ void BinaryTree<T>::postOrder() const
 template<class T>
 void BinaryTree<T>::getLength() const
 {
-
+    return this->length = length;
 }
 
 template<class T>
