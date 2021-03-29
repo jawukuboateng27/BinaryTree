@@ -85,10 +85,55 @@ void BinaryTree<T>::deleteItm(T &key)
 
 }
 
+
+
 //retrieving a node/number from a binaryTree
 template<class T>
 void BinaryTree<T>::retrieve(T &item, bool &found) const
 {
+    struct Node<T> *node = new struct Node<T>;
+    struct Node<T> *t;
+    node->key = item;
+    found = false;
+
+
+    if(root == NULL)
+    {
+        cout<<"You can not retrieve from an empty tree.";
+        return;
+    }
+
+    //loop through the tree
+    while(t != NULL)
+    {
+        if(node->key < t->key)
+        {
+            t = t->left;
+        }
+        else if(node->key > t->key)
+        {
+            t = t->right;
+        }
+
+        if(node->key == t->key)
+        {
+            found = true;
+            cout<<"Item found in tree.";
+            return;
+        }
+        else
+            {
+              return;
+            }
+    }
+
+    //key not in the tree
+    if(node->key != t->key)
+    {
+        found = false;
+        cout<<"Item not in tree.";
+        return;
+    }
 
 }
 
