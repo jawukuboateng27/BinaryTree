@@ -22,10 +22,13 @@ BinaryTree();
 void insert(T &key);
 void deleteItm(T &key);
 void retrieve(T &item, bool &found)const;
+void preOrderTraversal(Node<T> *node) const;
 void preOrder()const;
+void inOrderTraversal(Node<T> *node) const;
 void inOrder()const;
+void postOrderTraversal(Node<T> *node) const;
 void postOrder()const;
-void getLength()const;
+int getLength()const;
 void initialize(int number);
 //check return type
 void getNumSingleParent();
