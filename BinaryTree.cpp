@@ -94,10 +94,9 @@ void BinaryTree<T>::retrieve(T &item, bool &found) const
     struct Node<T> *node = new struct Node<T>;
     struct Node<T> *t;
     node->key = item;
-    found = false;
+    found = node->key == t->key;
 
-
-    if(root == NULL)
+    if(length == 0)
     {
         cout<<"You can not retrieve from an empty tree.";
         return;
@@ -115,9 +114,8 @@ void BinaryTree<T>::retrieve(T &item, bool &found) const
             t = t->right;
         }
 
-        if(node->key == t->key)
+        if(found)
         {
-            found = true;
             cout<<"Item found in tree.";
             return;
         }
@@ -137,28 +135,68 @@ void BinaryTree<T>::retrieve(T &item, bool &found) const
 
 }
 
+//traversing the tree preOrderly
+template<class T>
+void BinaryTree<T>::preOrderTraversal(Node<T> *node) const
+{
+    if(node != NULL)
+    {
+        cout<< node->key<<endl;
+        preOrderTraversal(node->left);
+        preOrderTraversal(node->right);
+    }
+}
+
+//using the preOrderTraversal method to traverse the tree
 template<class T>
 void BinaryTree<T>::preOrder() const
 {
+    preOrderTraversal(root);
+    cout<<endl;
 
 }
-
+//traversing the tree inOrderly
+template<class T>
+void BinaryTree<T>::inOrderTraversal(Node<T> *node) const
+{
+    if(node != NULL)
+    {
+        inOrderTraversal(node->left);
+        cout<<node->key;
+        inOrderTraversal(node->right);
+    }
+}
+//using the inOrderTraversal method to traverse the tree
 template<class T>
 void BinaryTree<T>::inOrder() const
 {
-
+    inOrderTraversal(root);
+    cout<<endl;
+}
+//traversing the tree postOrderly
+template<class T>
+void BinaryTree<T>::postOrderTraversal(Node<T> *node) const
+{
+    if(node != NULL)
+    {
+        postOrderTraversal(node->left);
+        postOrderTraversal(node->right);
+        cout<<node->key;
+    }
 }
 
+//using the postOrderTraversal method to traverse the tree
 template<class T>
 void BinaryTree<T>::postOrder() const
 {
-
+    postOrderTraversal(root);
+    cout<<endl;
 }
 
 template<class T>
-void BinaryTree<T>::getLength() const
+ int BinaryTree<T>::getLength() const
 {
-    return this->length = length;
+    return this->length;
 }
 
 template<class T>
