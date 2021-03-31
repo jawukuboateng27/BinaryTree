@@ -86,7 +86,6 @@ void BinaryTree<T>::deleteItm(T &key)
 }
 
 
-
 //retrieving a node/number from a binaryTree
 template<class T>
 void BinaryTree<T>::retrieve(T &item, bool &found) const
@@ -199,10 +198,21 @@ template<class T>
     return this->length;
 }
 
+//prints the number of leaf nodes in the tree
 template<class T>
 void BinaryTree<T>::getNumLeafNodes()
 {
-
+    int count = 0;
+    Node<T> *t;
+    while(t!= NULL)
+    {
+        if(t->left == NULL && t->right == NULL)
+        {
+            count += 1;
+            return;
+        }
+        cout<<"Number of leaf nodes are: "<<count;
+    }
 }
 
 template<class T>
@@ -211,9 +221,41 @@ void BinaryTree<T>::getNumSingleParent()
 
 }
 
+//polish this method
 template<class T>
-void BinaryTree<T>::getSumOfSubtrees()
+void BinaryTree<T>::getSumOfSubtrees(Node<T> *t)
 {
+    T element;
+    T sum;
+    cout<<"Item to get sum of subtrees: ";
+    cin>>element;
+
+    while(t != NULL)
+    {
+        //if element is not in the tree
+        if(t == NULL && t->key != element)
+        {
+            cout<<element<<" can not be found in the tree.";
+            cout<<endl;
+        }
+
+        //when element is found in the tree, add it's sub nodes
+        if(t->key == element)
+        {
+             sum = t->left->key + t->right->key;
+            cout<<"Sum of subnodes: "<<sum;
+            cout<<endl;
+            return;
+        }
+
+        //return 0 when key doesn't have subNodes
+        if(t->key == element && t->left == NULL && t->right == NULL)
+        {
+           cout<<"Sum of subnodes: "<< 0;
+           cout<<endl;
+        }
+
+    }
 
 }
 
