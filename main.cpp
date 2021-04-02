@@ -175,7 +175,7 @@ int main( int argc, char * argv[]) {
                 // Input number not found in tree
                 cout << "Item not in tree." << endl;
             }
-            cout << endl
+            cout << endl;
         }
         
         // User Input: Command "q" - quit
