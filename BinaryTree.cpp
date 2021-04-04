@@ -155,42 +155,35 @@ void BinaryTree<T>::retrieve(T &item, bool &found) const
     node->key = item;
     found = false;
     
-    if(root == nullptr)
-    {
+    if(root == nullptr) {
         cout<<"You can not retrieve from an empty tree.";
         return;
-    } else
-    {
+    }
+    
+    else {
       while(t != nullptr)
         {
-            if (node->key < t->key)
-            {
+            if (node->key < t->key) {
                 t = t->left;
             }
 
-            else if (node->key > t->key)
-            {
+            else if (node->key > t->key) {
                 t = t->right;
             }
             
-            else
-            {
+            else {
                 found = true;
                 cout << "Item found in tree.";
-		return;
-               
+                return;
             }
-	    //cout<<"Item found in tree";
         }
-      if(t == nullptr)
-	{
-	   //key not in the tree
+        
+        if(t == nullptr) {
             found = false;
             cout << "Item not in tree.";
             cout << endl;
             return;
-	}
-           
+        }    
     }
 }
 
@@ -295,14 +288,15 @@ void BinaryTree<T>::getNumLeafNodes()
 template<class T>
 void BinaryTree<T>::getNumSingleParent()
 {
-
+    
 }
 
 
 template<class T>
 int BinaryTree<T>::getSumOfSubtrees(T &value)
 {
-    
+    // CHANGE
+    return 0;
 }
 
 /*//polish this method
