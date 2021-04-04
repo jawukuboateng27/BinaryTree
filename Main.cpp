@@ -79,14 +79,17 @@ int main(int argc, char** argv)
                     intList.inOrder();
                 }
 
-//                else if(response2=='d')
-//                {
-//                    int num;
-//                    cout<<"Item to delete:";
-//                    cin>>num;
-//                    intList.deleteItem(num);
-//                    intList.print();
-//                }
+                else if(response2=='d')
+                {
+		  cout<<"Item to delete: ";
+                    int value;
+		    cin>>value;
+                    intList.deleteItem(value);
+		    cout<<endl;
+		    cout<<"In-Order: "<<endl;
+                    intList.inOrder();
+		    cout<<endl;
+               }
 
                 else if(response2 == 'l')
                 {
@@ -111,17 +114,21 @@ int main(int argc, char** argv)
 
                 else if(response2 == 'r')
                 {
-                    int item;
-                    bool found;
-                    cout<<"Item to be retrieved: ";
-                    cin>>item;
-                    cout<<endl;
-                    intList.retrieve(item, found);
+		  intList.inOrder();
+		  cout<<"Item to be retrieved: ";
+                  int item;
+		  cin>>item;
+                  bool found = false;
+                  intList.retrieve(item, found);
+		  cout<<endl;
                 }
 
                 else if(response2 =='s')
                 {
-                    intList.getNumSingleParent();
+		  cout<<"Number of single Parents: ";
+		  cout<<endl;
+                  intList.getNumSingleParent();
+		  cout<<endl;
                 }
 
                 else if(response2 == 'f')
@@ -131,13 +138,21 @@ int main(int argc, char** argv)
 
                 else if(response2 == 't')
                 {
-                    intList.getSumOfSubtrees();
+		  cout<<"Item to get sum of subtrees: ";
+                  cout<<endl;
+
+                  int num;
+                  cin>>num;
+                  cout<<"Sum of Subtrees: ";
+                  intList.getSumOfSubtrees(num);
+		  cout<<endl;
                 }
 
                 else if(response2 == 'o')
                 {
                     intList.postOrder();
                 }
+		
                 cout<<"Commands: \n"<<"insert (i), delete (d), retrieve(r), length (l), in-order(n), pre-order(p), "
                                       "post-order(o), getNumSingleParent(s), getNumLeafNodes(f), getSumOfSubtrees (t), quit (q)";
                 cout << endl;
