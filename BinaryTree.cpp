@@ -281,7 +281,7 @@ void BinaryTree<T>::getNumLeafNodes()
             count += 1;
             return;
         }
-        cout<<"Number of leaf nodes are: "<<count;
+        //cout<<"Number of leaf nodes are: "<<count;
     }
 }
 
