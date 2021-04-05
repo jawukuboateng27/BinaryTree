@@ -291,22 +291,9 @@ int BinaryTree<T>::getLeafNodes(NodeType<T> *node)
 }
 
 template<class T>
-int BinaryTree<T>::getNumSingleParent()
+void BinaryTree<T>::getNumSingleParent()
 {
-    cout<<getSingleParents(root);
-    return getSingleParents(root);
-}
-
-template<class T>
-int BinaryTree<T>::getSingleParents(NodeType<T> *node)
-{
-    node = root;
-    if(node == nullptr)
-        return 0;
-    if(node->left != nullptr || node->right != nullptr)
-        return 1;
-    else
-        return getLeafNodes(node->left) + getLeafNodes(node->right);
+    
 }
 
 
